@@ -19,4 +19,8 @@ public class SongController {
     public List<Song> getSongs(@PathVariable String mood) {
         return repo.findByMoodIgnoreCase(mood);
     }
+    @PostMapping("/add")
+    public Song addSong(@RequestBody Song song) {
+        return repo.save(song);
+    }
 }
